@@ -35,7 +35,9 @@ services:
       - .env/development/database
     volumes:
       - db_data:/var/lib/postgresql/data
+      - gem_cache:/usr/local/bundle
 
 volumes:
   db_data: 
+  gem_cache:
 

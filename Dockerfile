@@ -18,6 +18,10 @@ RUN bundle install
 # アプリケーションのコードをコンテナにコピーします
 COPY . .
 
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
 # 環境変数を設定します
 ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
@@ -27,8 +31,6 @@ RUN rails assets:precompile
 
 # Rails サーバー用にポート 3000 を公開します
 EXPOSE 3000
-
-# RUN rails db:setup
 
 # Rails サーバーを起動します
 CMD ["rails", "server", "-b", "0.0.0.0"]
