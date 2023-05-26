@@ -25,6 +25,12 @@ ENTRYPOINT ["entrypoint.sh"]
 # 環境変数を設定します
 ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
+ENV DATABASE_HOST=db
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=postgres
+
+
 
 # アセットをプリコンパイルします
 RUN rails assets:precompile
